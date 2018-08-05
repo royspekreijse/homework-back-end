@@ -2,7 +2,7 @@
 
 * Clone the git repository 
 * run ``` npm install ```
-* run ``` npm 
+* run ``` ng serve ```
 
 
 

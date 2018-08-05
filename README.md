@@ -9,4 +9,4 @@
 * Install [Angular/Cli](https://cli.angular.io/) 
 * Install [WAMP](http://www.wampserver.com/en/)
 
-More about the [front-end](front-end)
+More about the [front-end](./front-end.md)
