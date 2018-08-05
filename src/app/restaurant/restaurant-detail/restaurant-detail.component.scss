@@ -1,0 +1,99 @@
+@import './../../../variables.scss';
+$item-width: 350px;
+.card {
+    position: relative;
+    width:$item-width;
+    background-color: white;
+    float:left;
+    padding: 2px 16px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 175px;      
+    .card-content{
+        margin-left:110px;
+    }  
+    &:hover {
+        box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+    }
+
+}
+
+.title{        
+    font-size: 1.125em;         
+    box-sizing: border-box;
+}
+.stars{    
+    color:#dddddd;
+    position: relative;    
+    font-size: 2.5em;
+    width: 65px;
+    .highlighted {
+        position: absolute;
+        left:0;
+        top:0;
+        color: $secondary-light;        
+        overflow: hidden;
+    }
+    
+
+}
+.two-letters { 
+    position: absolute; 
+    top: 20px;
+    float:left;
+    display: flex;
+    color:black;
+    background-color: $secondary-medium;
+    border-radius: 50%;
+    font-size:2.5em;
+    height:100px; 
+    width:100px;    
+    align-items: center;    
+    span{              
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.open {
+    background-color: $primary-light;    
+}
+.closed {
+    background-color:#c9c9c9;
+}
+.order-ahead {
+    background-color: $primary-dark;    
+    color:white;
+}
+
+.heart {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-color:$secondary-dark;
+    border-radius: 50%;
+    height:50px;
+    width:50px;
+    background-color: $primary-dark;
+    border-style: solid;
+    outline:none;
+    &::before{
+        color: #c9c9c9; 
+        font-size: 3em;
+        content: '\2665';    
+    }    
+    &:hover{
+        border-width: 3px;
+        cursor: pointer;
+    }    
+    &:active {
+        background-color: rgba(0,0,0,0.2);
+    }
+    &.favorite {
+        &::before{        
+            font-size: 3em;
+            content: '\2665';    
+            color:$secondary-light;
+        }
+    }
+}

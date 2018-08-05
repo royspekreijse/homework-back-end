@@ -1,0 +1,23 @@
+<rsp-search-restaurant (submitSearch)="updateFilter($event)">  
+</rsp-search-restaurant>
+<ul class="row">
+  <li *ngFor="let sortingTitle of sortingTitles$ | async">        
+    <rsp-sort-button 
+      (click)="changeSortOrder(sortingTitle.SortProperty)"
+      [title]="sortingTitle.Title" 
+      [sortOrder]="sortingTitle.SortProperty === currentSortProperty.getValue()"
+      [descending]="sortDescending.getValue()" >
+    </rsp-sort-button>    
+  </li>
+</ul>
+<div class="row">
+
+<rsp-restaurant-detail 
+  *ngFor="let restaurant of restaurantList$ | async; let i = index" 
+  [restaurant]="restaurant" [listIndex]="i">     
+</rsp-restaurant-detail>
+
+
+
+</div>
+

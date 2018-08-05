@@ -1,0 +1,27 @@
+<div class="card" 
+    [ngClass]="{'open': (restaurant.status=='open'), 'order-ahead': (restaurant.status=='order ahead'), 'closed': (restaurant.status=='closed')}">
+  <div class="two-letters">
+    <span>{{getTwoLetters()}}</span>
+  </div>
+  <div class="card-content">
+  <h3 class="title">
+    {{listIndex}}. {{restaurant.name}}
+  </h3>
+  <div>
+  <div>
+    Distance: {{restaurant.sortingValues.distance}} <br/>    
+
+    <div class="stars">*****
+        <div class="highlighted" 
+             [style.width.%]="(restaurant.sortingValues.ratingAverage/5)*100">
+             *****
+        </div>
+      </div>                  
+  </div>
+  <button class="heart" [ngClass]="{'favorite' : (restaurant.isFavorite == true)}" (click)="toggleFavorite(restaurant)" ></button>
+  <p *ngIf="restaurant.isFavorite">      
+    </p>    
+
+</div> 
+</div>
+
