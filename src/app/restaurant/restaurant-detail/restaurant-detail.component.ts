@@ -17,7 +17,8 @@ export class RestaurantDetailComponent {
     restaurant.isFavorite = !restaurant.isFavorite;
   }
   getTwoLetters (): string {
-    if (this.restaurant.name) {
+
+    if (this.restaurant && this.restaurant.name) {
       // Split the array into words
       const makeWords = this.restaurant.name.split(' ');
       let firstLetter = '';

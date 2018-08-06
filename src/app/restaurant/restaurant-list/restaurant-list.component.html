@@ -12,6 +12,7 @@
 </ul>
 <div class="row">
 
+  
 <rsp-restaurant-detail 
   *ngFor="let restaurant of restaurantList$ | async; let i = index" 
   [restaurant]="restaurant" [listIndex]="i">     

@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { SampleService } from '../../service/sample.service';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Restaurant } from '../../models/restaurant';
 import { SortingTitle } from '../../models/sorting-title';
 

@@ -25,8 +25,15 @@ export class SampleService {
   }
 
   getSampleData(): Observable<Restaurant[]> {
-    return this.http.get(`${this.url}/api/restaurant`).pipe(
+    // `${this.url}/api/restaurant`
+    return this.http.get(this.url = '/assets/Sample.json').pipe(
       map((response: any) => {
+        const retArray = response.restaurants.map((element: Restaurant) => {
+          // tslint:disable-next-line:max-line-length
+          element.sortingValues['topRestaurants'] = (( element.sortingValues.distance * element.sortingValues.popularity) + element.sortingValues.ratingAverage);
+          return element;
+        });
+        /*
         const retArray = [];
         response.forEach(element => {
           const item = {
@@ -47,6 +54,7 @@ export class SampleService {
           };
           retArray.push(item);
         });
+        */
         return retArray;
       }));
   }

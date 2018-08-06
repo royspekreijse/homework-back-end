@@ -16,6 +16,9 @@ describe('RestaurantDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RestaurantDetailComponent);
     component = fixture.componentInstance;
+    component.listIndex = 0;
+    component.restaurant = undefined;
+    component.twoLetters = '';
     fixture.detectChanges();
   });
 

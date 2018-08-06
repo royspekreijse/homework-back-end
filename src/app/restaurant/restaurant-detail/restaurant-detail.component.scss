@@ -65,7 +65,10 @@ $item-width: 350px;
     background-color: $primary-dark;    
     color:white;
 }
-
+.btn-heart{
+    height: 60px;
+    width:60px;
+}
 .heart {
     position: absolute;
     right: 10px;
@@ -77,10 +80,12 @@ $item-width: 350px;
     background-color: $primary-dark;
     border-style: solid;
     outline:none;
+    transform: rotate(90deg);
     &::before{
         color: #c9c9c9; 
         font-size: 3em;
-        content: '\2665';    
+        content: '\2765';  
+        vertical-align: -50%;
     }    
     &:hover{
         border-width: 3px;
@@ -92,8 +97,26 @@ $item-width: 350px;
     &.favorite {
         &::before{        
             font-size: 3em;
-            content: '\2665';    
+            content: '\2765';    
+            vertical-align: -50%;
             color:$secondary-light;
         }
     }
+}
+.heart2 {
+    &::before {
+        content:"+";
+    }
+    line-height: 100px;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left:10px;
+    bottom:10px;
+    border-radius: 50%;
+    height:50px;
+    width:50px;
+    content: '\2765';   
+    transform: rotate(90deg);
+
 }

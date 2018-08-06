@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SortButtonComponent } from './sort-button.component';
+import { Direction } from '../../models/direction';
 
 describe('SortButtonComponent', () => {
   let component: SortButtonComponent;
@@ -16,6 +17,10 @@ describe('SortButtonComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SortButtonComponent);
     component = fixture.componentInstance;
+    component.sortOrder = Direction.UnSorted;
+    component.title = 'De titel';
+    component.property = 'prop';
+    component.descending = false;
     fixture.detectChanges();
   });
 

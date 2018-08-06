@@ -5,22 +5,26 @@ import { SearchRestaurantComponent } from './restaurant/search-restaurant/search
 import { SortButtonComponent } from './restaurant/sort-button/sort-button.component';
 import { RestaurantDetailComponent } from './restaurant/restaurant-detail/restaurant-detail.component';
 import { SampleService } from './service/sample.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        RestaurantDetailComponent,
         RestaurantListComponent,
+        RestaurantDetailComponent,
         SearchRestaurantComponent,
-        SortButtonComponent,
-        SearchRestaurantComponent
+        SortButtonComponent
       ],
-      providers: [
-        SampleService
+      providers: [],
+      imports: [
+        BrowserModule,
+        HttpClientModule
       ],
-      imports: [HttpClientTestingModule, HttpTestingController ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
