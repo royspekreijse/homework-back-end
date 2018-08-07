@@ -79,7 +79,7 @@
 			"minCost": 500
 		}
 	}, {
-		"name": "Pizza Heart2",
+		"name": "Pizza Heart",
 		"status": "order ahead",
 		"isFavorite": true,
 		"sortingValues": {
