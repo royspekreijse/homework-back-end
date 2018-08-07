@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject, tick, fakeAsync } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RestaurantListComponent } from './restaurant-list.component';
@@ -10,9 +10,7 @@ import { Restaurant } from '../../models/restaurant';
 import { SampleService } from '../../service/sample.service';
 import { sortingTitles } from '../../data/sorting-titles';
 
-class MockedSampleService {
-  constructor() {}
-
+const MockedSampleService = {
   getSampleData(): Observable<Restaurant[]> {
     return of([
       {
@@ -28,13 +26,26 @@ class MockedSampleService {
           deliveryCosts: 200,
           minCost: 1000
         }
+      }, {
+        name: 'Tandoori Express',
+        status: 'closed',
+        sortingValues: {
+          bestMatch: 1.0,
+          newest: 266.0,
+          ratingAverage: 4.5,
+          distance: 2308,
+          popularity: 123.0,
+          averageProductPrice: 1146,
+          deliveryCosts: 150,
+          minCost: 1300
+        }
       }
     ]);
-  }
+  },
   getSortingHeaders() {
     return of(sortingTitles);
   }
-}
+};
 
 describe('RestaurantListComponent', () => {
   let component: RestaurantListComponent;
@@ -48,7 +59,9 @@ describe('RestaurantListComponent', () => {
         SortButtonComponent,
         SearchRestaurantComponent
       ],
-      providers: [SampleService],
+      providers: [
+        {provide: SampleService, useValue: MockedSampleService }
+      ],
       imports: [HttpClientTestingModule]
     }).compileComponents();
   }));
@@ -64,10 +77,10 @@ describe('RestaurantListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should create X Restaurant Items', () => {
+  it('should create 2 Restaurant Items', fakeAsync(() => {
+    tick();
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-
-    expect(compiled.querySelector('rsp-restaurant-detail').length()).toBeGreaterThan(1);
-  });
+    expect(compiled.querySelectorAll('.restaurant-detail').length).toBe(2);
+  }));
 });
