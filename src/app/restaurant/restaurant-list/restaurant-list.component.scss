@@ -2,3 +2,18 @@ li{
  list-style-type: none;   
  float: left;
 }
+.mobile-only{
+    display: none;
+}
+@media only screen and (max-width: 840px) {
+    
+    .mobile-only{
+        display: block;
+    }
+    .sort-order {
+        display: none;
+        &.show-mobile {
+            display: block;
+        }
+    }
+}
