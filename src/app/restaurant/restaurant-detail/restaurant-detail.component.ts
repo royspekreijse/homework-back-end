@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Restaurant } from '../../models/restaurant';
+import { SampleService } from '../../service/sample.service';
 
 @Component({
   selector: 'rsp-restaurant-detail',
@@ -11,10 +12,11 @@ export class RestaurantDetailComponent {
   @Input() restaurant: Restaurant;
   @Input() listIndex: number;
   public twoLetters: string;
-  constructor() { }
+  constructor(private sampleService: SampleService) { }
 
   toggleFavorite(restaurant) {
     restaurant.isFavorite = !restaurant.isFavorite;
+    this.sampleService.setFavorite(restaurant).subscribe();
   }
   getTwoLetters (): string {
 

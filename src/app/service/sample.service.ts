@@ -17,7 +17,7 @@ export class SampleService {
     if (isDevMode()) {
       this.url = 'http://127.0.0.1:8000';
     } else {
-      this.url = 'http://homework-backend.spekreijse.eu';
+      this.url = 'actual.backend.url';
     }
   }
   getSortingHeaders(): Observable<any> {
@@ -25,15 +25,19 @@ export class SampleService {
   }
 
   getSampleData(): Observable<Restaurant[]> {
-    // `${this.url}/api/restaurant`
-    return this.http.get(this.url = '/assets/Sample.json').pipe(
+    // ${this.url} '/assets/Sample.json'
+    return this.http.get(`${this.url}/api/restaurant`).pipe(
       map((response: any) => {
+        /*
+        ONLY USED IN COMBINATION WITH SAMPLE DATA
         const retArray = response.restaurants.map((element: Restaurant) => {
           // tslint:disable-next-line:max-line-length
-          element.sortingValues['topRestaurants'] = (( element.sortingValues.distance * element.sortingValues.popularity) + element.sortingValues.ratingAverage);
+          element.sortingValues['topRestaurants'] = (( element.sortingValues.distance * element.sortingValues.popularity)
+          + element.sortingValues.ratingAverage);
           return element;
         });
-        /*
+        */
+
         const retArray = [];
         response.forEach(element => {
           const item = {
@@ -54,16 +58,18 @@ export class SampleService {
           };
           retArray.push(item);
         });
-        */
+
         return retArray;
       }));
   }
 
-  setFavorite(restaurant: Restaurant): Observable<Restaurant> {
-    return this.http.patch(`${this.url}/api/sorting-value/id`, {
+  setFavorite(restaurant: Restaurant): Observable<any> {
+    return this.http.post(`${this.url}/api/restaurant`, {
+      name: restaurant.name,
+      isFavorite: restaurant.isFavorite
     }).pipe(
       map((response: any) => {
-        return undefined;
+        console.log(response);
     }));
   }
 }
