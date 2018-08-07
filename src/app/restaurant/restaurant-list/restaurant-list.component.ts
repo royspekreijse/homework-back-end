@@ -12,6 +12,7 @@ import { SortingTitle } from '../../models/sorting-title';
 
 export class RestaurantListComponent {
   public sortingTitles$: Observable<SortingTitle[]>;
+  public menuExpand: boolean;
   public sortDescending: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public restaurantList: Restaurant[] = [];
   public restaurantList$: BehaviorSubject<Restaurant[]> = new BehaviorSubject([]);
