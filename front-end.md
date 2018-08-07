@@ -1,9 +1,9 @@
 # Installation
 
+* Start the backend More about the [back-end](https://github.com/royspekreijse/homework-backend)
 * Clone the git repository 
 * run ``` npm install ```
 * run ``` ng serve ```
-
 
 
 ## Development server (Angular)
@@ -22,9 +22,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-
+## see a running sample [here](https://homework.spekreijse.eu)
+* it's a not a prod build so you can debug it
+* it's getting it's data from the assets in a sample.json
 
