@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="closed.svg">
+   sodipodi:docname="order-ahead2.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -81,19 +81,27 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:12.38811302px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.05291667;stroke-miterlimit:4;stroke-dasharray:none"
-       x="27.464092"
-       y="275.59756"
-       id="text4544-4"
+       style="font-style:normal;font-weight:normal;font-size:12.38811207px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.05291667;stroke-miterlimit:4;stroke-dasharray:none"
+       x="27.344023"
+       y="272.35556"
+       id="text4544"
        transform="scale(0.98423841,1.016014)"><tspan
          sodipodi:role="line"
-         id="tspan4542-0"
-         x="27.464092"
-         y="275.59756"
-         style="font-size:6.19405651px;text-align:center;text-anchor:middle;stroke-width:0.05291667;stroke-miterlimit:4;stroke-dasharray:none">CLOSED</tspan></text>
+         id="tspan4542"
+         x="28.432821"
+         y="272.35556"
+         style="font-size:6.19405603px;text-align:center;text-anchor:middle;stroke-width:0.05291667;stroke-miterlimit:4;stroke-dasharray:none">ORDER </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.38811207px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.05291667;stroke-miterlimit:4;stroke-dasharray:none"
+       x="27.423082"
+       y="279.02164"
+       id="text4544-0"
+       transform="scale(0.98423841,1.016014)"><tspan
+         sodipodi:role="line"
+         id="tspan4542-4"
+         x="28.511883"
+         y="279.02164"
+         style="font-size:6.19405603px;text-align:center;text-anchor:middle;stroke-width:0.05291667;stroke-miterlimit:4;stroke-dasharray:none">AHEAD </tspan></text>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Layer 2" />
 </svg>
