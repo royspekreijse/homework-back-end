@@ -1,7 +1,10 @@
-<rsp-search-restaurant (submitSearch)="updateFilter($event)">  
-</rsp-search-restaurant>
 <ul class="row">
-  <li *ngFor="let sortingTitle of sortingTitles$ | async">        
+  <li class="mobile-only">
+      <rsp-sort-button (click)="menuExpand=!menuExpand"    
+      title="sort">           
+    </rsp-sort-button>    
+  </li>
+  <li *ngFor="let sortingTitle of sortingTitles$ | async" class="sort-order" [class.show-mobile]="menuExpand">        
     <rsp-sort-button 
       (click)="changeSortOrder(sortingTitle.SortProperty)"
       [title]="sortingTitle.Title" 
@@ -11,13 +14,17 @@
   </li>
 </ul>
 <div class="row">
-
-  
-<rsp-restaurant-detail 
+<rsp-search-restaurant (submitSearch)="updateFilter($event)">  
+</rsp-search-restaurant>
+<div class="grid-container">
+<rsp-restaurant-detail class="restaurant-detail" 
   *ngFor="let restaurant of restaurantList$ | async; let i = index" 
-  [restaurant]="restaurant" [listIndex]="i">     
+  [restaurant]="restaurant" [listIndex]="(i+1)">     
 </rsp-restaurant-detail>
-
+<p *ngIf="(restaurantList$ | async)?.length==0">
+  No results.
+</p>
+</div>  
 
 
 </div>
