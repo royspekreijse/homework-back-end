@@ -1,4 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RestaurantListComponent } from './restaurant-list.component';
 import { RestaurantDetailComponent } from './../../restaurant/restaurant-detail/restaurant-detail.component';
 import { SortButtonComponent } from '../sort-button/sort-button.component';
@@ -7,14 +9,13 @@ import { Observable, of } from 'rxjs';
 import { Restaurant } from '../../models/restaurant';
 import { SampleService } from '../../service/sample.service';
 import { sortingTitles } from '../../data/sorting-titles';
-import { HttpClientModule, HttpClient } from '../../../../node_modules/@angular/common/http';
-
 
 class MockedSampleService {
-  constructor() { }
+  constructor() {}
 
   getSampleData(): Observable<Restaurant[]> {
-    return of([{
+    return of([
+      {
         name: 'Tanoshii Sushi',
         status: 'open',
         sortingValues: {
@@ -26,7 +27,9 @@ class MockedSampleService {
           averageProductPrice: 1536,
           deliveryCosts: 200,
           minCost: 1000
-        }}]);
+        }
+      }
+    ]);
   }
   getSortingHeaders() {
     return of(sortingTitles);
@@ -36,8 +39,7 @@ class MockedSampleService {
 describe('RestaurantListComponent', () => {
   let component: RestaurantListComponent;
   let fixture: ComponentFixture<RestaurantListComponent>;
-  let service: MockedSampleService;
-
+  let service: SampleService;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -46,29 +48,26 @@ describe('RestaurantListComponent', () => {
         SortButtonComponent,
         SearchRestaurantComponent
       ],
-      providers: [
-        {
-          provide: SampleService,
-          useValue: new MockedSampleService
-        }
-      ],
-      imports:[HttpClient]
-    })
-    .compileComponents();
+      providers: [SampleService],
+      imports: [HttpClientTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    service = new MockedSampleService();
+    // service = new MockedSampleService();
     fixture = TestBed.createComponent(RestaurantListComponent);
-    TestBed.get(service);
+    service = TestBed.get(SampleService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should create X Restaurant Items', () => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
 
-
+    expect(compiled.querySelector('rsp-restaurant-detail').length()).toBeGreaterThan(1);
+  });
 });
